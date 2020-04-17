@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Guide_a_City</string>
+    <string name="logo_name">Get A Way</string>
+    <string name="slogan_name">we will guide you!!</string>
+    <string name="powered_by">Powered By Rishi Raj</string>
+    <!--Strings for On Boarding Screen-->
+    <!--Titles-->
+    <string name="first_slide_title">Search your Location</string>
+    <string name="second_slide_title">Make A Call</string>
+    <string name="third_slide_title">Add Missing Place</string>
+    <string name="fourth_slide_title">Sit Back And Enjoy</string>
+    <!--Descriptions-->
+    <string name="first_slide_desc">You can search any place nearby or with-in the specified city.We will display specific or all related place to match your search</string>
+    <string name="second_slide_desc">We provide almost all the numbers of all departments and shops registered with us.you can perform booking as well</string>
+    <string name="third_slide_desc">If you have a shop or somethings and want to be a prat of our growing industry then add your place by following simple step</string>
+    <string name="fourth_slide_desc">We will handle everything for you. As you have the app in your pocket the you don\'t have to worry about anything</string>
+    <!--Buttons-->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="let_get_started">Lets Get Started</string>
+
+    <!--string for Dashboard -->
+    <!--Categories-->
+    <string name="hotels">Hotels</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="shops">Shops</string>
+    <string name="banks">Banks</string>
+    <string name="airports">Airports</string>
+
+    <!--Titles and Descriptions-->
+
+    <string name="featured_locations">All Featured Locations</string>
+    <string name="featured_locations_description">All the locations that are featured and have the top demand in town!</string>
+    <string name="most_views_locations">Most Viewed</string>
+    <string name="categories">Categories</string>
+    <string name="view_all">View All</string>
+    <string name="search_text">Search...</string>
+
+
+    <!--menu-->
+    <string name="home">HOME</string>
+    <string name="search">SEARCH</string>
+    <string name="all_categories">ALL CATEGORIES</string>
+    <string name="add_missing_place">ADD MISSING PLACE</string>
+
+    <!-- profile   -->
+    <string name="login">LogIn</string>
+    <string name="profile">Profile</string>
+    <string name="logout">LogOut</string>
+
+    <!--    Categories-->
+    <string name="restaurant">Restaurant</string>
+    <string name="bankss">Banks</string>
+    <string name="education">Education</string>
+    <string name="school">School</string>
+    <string name="shopss">Shops</string>
+
+
+    <string name="share">Share</string>
+    <string name="rate_us">Rate Us</string>
+
+    <!--    categories-->
+    <string name="car_rent">Car Rent</string>
+    <string name="expand_all">Expand All</string>
+    <string name="hospitals">Hospitals</string>
+
+
+</resources>
