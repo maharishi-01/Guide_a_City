@@ -2,5 +2,8 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/baloo</item>
+        <item>@font/muli</item>
+        <item>@font/muli_extrabold</item>
+        <item>@font/muli_light</item>
     </array>
 </resources>

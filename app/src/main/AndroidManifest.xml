@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User.ShowAllCategories"></activity>
+        <activity android:name=".Common.LoginSignup.VerifyOtp"></activity>
+        <activity android:name=".Common.LoginSignup.SignUp3rdActivity" />
+        <activity android:name=".Common.LoginSignup.SignUp2ndActivity" />
+        <activity android:name=".Common.LoginSignup.SignUp" />
+        <activity android:name=".Common.LoginSignup.LoginActivity" />
+        <activity android:name=".Common.LoginSignup.RetailerStartUpScreen" />
+        <activity android:name=".User.ShowAllCategories" />
         <activity android:name=".User.AddPlace" />
         <activity android:name=".Common.OnBoarding" />
         <activity android:name=".User.UserDashboard" />

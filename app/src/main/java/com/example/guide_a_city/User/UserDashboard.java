@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.guide_a_city.Common.LoginSignup.RetailerStartUpScreen;
 import com.example.guide_a_city.HelperClasses.HomeAdapter.CategoriesAdapter;
 import com.example.guide_a_city.HelperClasses.HomeAdapter.CategoriesHelperClass;
 import com.example.guide_a_city.HelperClasses.HomeAdapter.FeaturedAdapter;
@@ -30,19 +31,17 @@ import java.util.ArrayList;
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //variables
-    static final float END_SCALE=0.7f;
-    RecyclerView featuredRecycler,mostViewedRecycler,categoriesRecycler;
+    static final float END_SCALE = 0.7f;
+    RecyclerView featuredRecycler, mostViewedRecycler, categoriesRecycler;
 
     RecyclerView.Adapter adapter;
-    private GradientDrawable gradient1,gradient2,gradient3,gradient4;
+    private GradientDrawable gradient1, gradient2, gradient3, gradient4;
 
     //Drawer menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView menuIcon;
     LinearLayout contentView;
-
-
 
 
     @Override
@@ -54,15 +53,14 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         //Hooks
 
         featuredRecycler = findViewById(R.id.featured_recycler);
-        mostViewedRecycler =findViewById(R.id.most_viewed_recycler);
+        mostViewedRecycler = findViewById(R.id.most_viewed_recycler);
         categoriesRecycler = findViewById(R.id.categories_recycler);
         menuIcon = findViewById(R.id.menu_icon);
         contentView = findViewById(R.id.content);
 
         //Menu Hooks
-        drawerLayout=findViewById(R.id.drawer_layout);
-        navigationView=findViewById(R.id.navigation_view);
-
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
 
 
         navigationDrawer();
@@ -74,7 +72,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         categoriesRecycler();
 
     }
-  //Navigation Drawer Functions
+
+    //Navigation Drawer Functions
     private void navigationDrawer() {
 
         //navigation Drawer
@@ -86,11 +85,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         menuIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              if(drawerLayout.isDrawerVisible(GravityCompat.START))
-              {
-                  drawerLayout.closeDrawer(GravityCompat.START);
-              }
-              else drawerLayout.openDrawer(GravityCompat.START);
+                if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else drawerLayout.openDrawer(GravityCompat.START);
             }
         });
 
@@ -127,26 +124,26 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     @Override
     public void onBackPressed() {
 
-        if(drawerLayout.isDrawerVisible(GravityCompat.START)){
+        if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else
+        } else
             super.onBackPressed();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-       switch (menuItem.getItemId()){
-           case R.id.nav_all_categories:
-               Intent intent=new Intent(getApplicationContext(),ShowAllCategories.class);
-               startActivity(intent);
-               break;
+        switch (menuItem.getItemId()) {
+            case R.id.nav_all_categories:
+                Intent intent = new Intent(getApplicationContext(), ShowAllCategories.class);
+                startActivity(intent);
+                break;
 
-           case R.id.nav_add_missing_place:
-               Intent intent1 = new Intent(getApplicationContext(),AddPlace.class);
-               startActivity(intent1);
-               break;
-       }
+            case R.id.nav_add_missing_place:
+                Intent intent1 = new Intent(getApplicationContext(), AddPlace.class);
+                startActivity(intent1);
+                break;
+        }
 
         return true;
     }
@@ -210,5 +207,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
 
+    public void callRetailerScreen(View view) {
 
+        startActivity(new Intent(getApplicationContext(), RetailerStartUpScreen.class));
+    }
 }
