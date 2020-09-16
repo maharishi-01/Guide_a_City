@@ -85,10 +85,18 @@
     <string name="other">Other</string>
     <string name="select_your_age">Select Your Age</string>
 
-<!-- OTP Screen-->
+    <!-- OTP Screen-->
     <string name="otp_code_text">Otp</string>
     <string name="otp_verification_text">Verification</string>
     <string name="otp_description_text">Enter one time password sent on\n</string>
+    <string name="forget_password_desc">Provide Your Account\'s Email for which you want to rest your password</string>
+    <string name="make_selection">Make Selection</string>
+    <string name="make_selection_desc">Select which contact detail should we use to reset your password?</string>
+    <string name="via_email">Via Email</string>
+    <string name="new_credentials_desc">Our Identity has been verified set your new Password</string>
+    <string name="new_credentials">New Credentials</string>
+    <string name="password_updated">Password Updated</string>
+    <string name="password_updated_desc">Your Password has been Updated!!</string>
 
 
 </resources>
