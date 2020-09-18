@@ -1,9 +1,17 @@
 package com.example.guide_a_city.Common.LoginSignup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -36,6 +44,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void userLogin(View view) {
+
+
+        if(!isConnected(this))
+        {
+            showCustomDialog();
+        }
 
         if (!validateFields()) {
             return;
@@ -95,6 +109,45 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void showCustomDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        builder.setMessage("Please connect to the internet to proceed further")
+                .setCancelable(false)
+                .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                     startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                       startActivity(new Intent(getApplicationContext(),RetailerStartUpScreen.class));
+                       finish();
+                    }
+                })
+                .create()
+                .show();
+    }
+
+    private boolean isConnected(LoginActivity loginActivity) {
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) loginActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo wificonn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo mobileconn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        if ((wificonn != null && wificonn.isConnected()) || (mobileconn != null && mobileconn.isConnected()))
+        {
+            return  true;
+
+        }
+        else{
+            return false;
+        }
 
     }
 
