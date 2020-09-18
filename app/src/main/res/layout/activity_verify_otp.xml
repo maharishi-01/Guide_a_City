@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:transitionName="transition_OTP_screen"
     tools:context=".Common.LoginSignup.VerifyOtp">
 
     <LinearLayout
@@ -57,6 +58,7 @@
             android:layout_gravity="center"/>
 
         <com.chaos.view.PinView
+            android:id="@+id/pin_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:itemCount="6"
@@ -79,6 +81,7 @@
             android:background="@color/colorPrimary"
             android:text="Verify Code"
             android:layout_marginTop="30dp"
+            android:onClick="callNextScreenFromOTP"
             android:textColor="@color/black"/>
 
 

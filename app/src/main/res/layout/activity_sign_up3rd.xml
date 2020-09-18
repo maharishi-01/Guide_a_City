@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:padding="30dp"
+    android:id="@+id/suignUp3Scrollview"
+    android:transitionName="transition_OTP_screen"
     tools:context=".Common.LoginSignup.SignUp3rdActivity">
 
 
@@ -43,6 +45,7 @@
 
 
          <com.hbb20.CountryCodePicker
+             android:id="@+id/countrycodepicker"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              app:ccp_autoDetectCountry="true"
@@ -54,6 +57,7 @@
              />
 
             <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/signUp_phoneNumber"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
