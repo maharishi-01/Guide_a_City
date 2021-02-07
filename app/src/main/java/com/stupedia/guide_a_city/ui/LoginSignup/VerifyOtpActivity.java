@@ -3,6 +3,7 @@ package com.stupedia.guide_a_city.ui.LoginSignup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -57,7 +58,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
                 phoneNo,        // Phone number to verify
                 60,                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
-                TaskExecutors.MAIN_THREAD,               // Activity (for callback binding)
+                (Activity) TaskExecutors.MAIN_THREAD,               // Activity (for callback binding)
                 mCallbacks);        // OnVerificationStateChangedCallbacks
     }
 

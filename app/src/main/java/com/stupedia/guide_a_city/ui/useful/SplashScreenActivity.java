@@ -16,7 +16,7 @@ import com.stupedia.guide_a_city.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private  static int SPLASH_TIMER=5000;
+    private  static final int SPLASH_TIMER=1500;
 
     ImageView backgroundImage;
     TextView poweredby;
@@ -51,7 +51,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
                     SharedPreferences.Editor editor=onBoardingScreen.edit();
                     editor.putBoolean("firstTime",false);
-                    editor.commit();
+                    editor.apply();
                     Intent intent = new Intent(getApplicationContext(), OnBoardingActivity.class);
                     startActivity(intent);
                     finish();

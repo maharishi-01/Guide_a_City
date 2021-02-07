@@ -14,12 +14,13 @@ import com.stupedia.guide_a_city.R;
 import com.stupedia.guide_a_city.model.CategoriesModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.AdapterAllCategoriesViewHolder> {
 
-    ArrayList<CategoriesModel> mostViewedLocations;
+    List<CategoriesModel> mostViewedLocations;
 
-    public CategoriesAdapter(ArrayList<CategoriesModel> mostViewedLocations) {
+    public CategoriesAdapter(List<CategoriesModel> mostViewedLocations) {
         this.mostViewedLocations = mostViewedLocations;
     }
 
@@ -38,6 +39,11 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ad
         holder.imageView.setImageResource(helperClass.getImage());
         holder.textView.setText(helperClass.getTitle());
         holder.relativeLayout.setBackground(helperClass.getGradient());
+    }
+
+    public void setData(List<CategoriesModel> mostViewedLocations) {
+        this.mostViewedLocations = mostViewedLocations;
+        notifyDataSetChanged();
     }
 
     @Override
