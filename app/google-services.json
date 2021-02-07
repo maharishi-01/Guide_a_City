@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "72864443901",
+    "project_id": "guideacity",
+    "storage_bucket": "guideacity.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72864443901:android:73fca1a9eba0dd75293d94",
+        "android_client_info": {
+          "package_name": "com.stupedia.guide_a_city"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72864443901-nb8u1s22ge1vd77uonvbs74dbm1pq9s0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stupedia.guide_a_city",
+            "certificate_hash": "50a2ed4694aeb2d5807a40d539b463888631ac67"
+          }
+        },
+        {
+          "client_id": "72864443901-1o66tijd5s8pdo3mrs6a2bbt1kqcpnmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr8jEKjGFtV8uHc7OsraxksHOIKpvI0ow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72864443901-1o66tijd5s8pdo3mrs6a2bbt1kqcpnmu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

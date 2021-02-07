@@ -8,7 +8,7 @@
     android:padding="30dp"
     android:id="@+id/suignUp3Scrollview"
     android:transitionName="transition_OTP_screen"
-    tools:context=".Common.LoginSignup.SignUp3rdActivity">
+    tools:context=".ui.LoginSignup.SignUp3rdActivity">
 
 
     <LinearLayout

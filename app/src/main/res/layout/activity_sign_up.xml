@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:padding="30dp"
-    tools:context=".Common.LoginSignup.SignUp"
+    tools:context=".ui.LoginSignup.SignUpActivity"
     android:transitionName="transition_Signup_screen">
 
 
