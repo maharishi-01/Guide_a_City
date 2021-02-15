@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stupedia.guide_a_city">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,21 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.ForgetPasswordSuccess" />
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.SetNewPassword" />
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.MakeSelectionActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.ForgetPasswordActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.VerifyOtpActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.SignUp3rdActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.SignUp2ndActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.SignUpActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.LoginActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.LoginSignup.RetailerStartUpScreen" />
-        <activity android:name="com.stupedia.guide_a_city.ui.useful.ShowAllCateActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.useful.AddPlaceActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.useful.OnBoardingActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.useful.UserDashActivity" />
-        <activity android:name="com.stupedia.guide_a_city.ui.useful.SplashScreenActivity">
+        <activity android:name=".ui.useful.RestaurantActivity"></activity>
+        <activity android:name=".ui.LoginSignup.ForgetPasswordSuccess" />
+        <activity android:name=".ui.LoginSignup.SetNewPassword" />
+        <activity android:name=".ui.LoginSignup.MakeSelectionActivity" />
+        <activity android:name=".ui.LoginSignup.ForgetPasswordActivity" />
+        <activity android:name=".ui.LoginSignup.VerifyOtpActivity" />
+        <activity android:name=".ui.LoginSignup.SignUp3rdActivity" />
+        <activity android:name=".ui.LoginSignup.SignUp2ndActivity" />
+        <activity android:name=".ui.LoginSignup.SignUpActivity" />
+        <activity android:name=".ui.LoginSignup.LoginActivity" />
+        <activity android:name=".ui.LoginSignup.RetailerStartUpScreen" />
+        <activity android:name=".ui.useful.ShowAllCateActivity" />
+        <activity android:name=".ui.useful.AddPlaceActivity" />
+        <activity android:name=".ui.useful.OnBoardingActivity" />
+        <activity android:name=".ui.useful.UserDashActivity" />
+        <activity android:name=".ui.useful.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,5 +36,9 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

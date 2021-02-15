@@ -33,16 +33,17 @@ public class CategoryRepo {
     }
 
     private void getDataFromServer() {
-        final GradientDrawable gradient1, gradient2, gradient3, gradient4;
+        final GradientDrawable[] drawablesArray = new GradientDrawable[4];
 
-        gradient2 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffd4cbe5, 0xffd4cbe5});
-        gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xff7adccf, 0xff7adccf});
-        gradient3 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xfff7c59f, 0xFFf7c59f});
-        gradient4 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffb8d7f5, 0xffb8d7f5});
+        drawablesArray[0] = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffd4cbe5, 0xffd4cbe5});
+        drawablesArray[1] = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xff7adccf, 0xff7adccf});
+        drawablesArray[2] = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xfff7c59f, 0xFFf7c59f});
+        drawablesArray[3] = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffb8d7f5, 0xffb8d7f5});
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child(LocalString.CATE_DB_REF).child("education").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int i = 0;
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String description = dataSnapshot.child("description").getValue(String.class);
                     String location = dataSnapshot.child("location").getValue(String.class);
@@ -50,11 +51,13 @@ public class CategoryRepo {
                     /**
                      * pay attention for string or integer
                      */
-
-                   // String rating = dataSnapshot.child("rating").getValue(Float.class);
-                    categoriesModels.add(new CategoriesModel(gradient1, R.drawable.hospital_image, title));
+                    if (i > 3) {
+                        i = 0;
+                    }
+                    // String rating = dataSnapshot.child("rating").getValue(Float.class);
+                    categoriesModels.add(new CategoriesModel(drawablesArray[i], R.drawable.hospital_image, title));
                     listMutableLiveData.setValue(categoriesModels);
-
+                    i++;
 
                 }
             }

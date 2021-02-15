@@ -27,18 +27,17 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ad
     @NonNull
     @Override
     public AdapterAllCategoriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.categories_card_design, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_items, parent, false);
         AdapterAllCategoriesViewHolder lvh = new AdapterAllCategoriesViewHolder(view);
         return lvh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull AdapterAllCategoriesViewHolder holder, int position) {
+        holder.textView.setText(mostViewedLocations.get(position).getTitle());
+        holder.imageView.setImageResource(mostViewedLocations.get(position).getImage());
+        holder.relativeLayout.setBackground(mostViewedLocations.get(position).getGradient());
 
-        CategoriesModel helperClass = mostViewedLocations.get(position);
-        holder.imageView.setImageResource(helperClass.getImage());
-        holder.textView.setText(helperClass.getTitle());
-        holder.relativeLayout.setBackground(helperClass.getGradient());
     }
 
     public void setData(List<CategoriesModel> mostViewedLocations) {
@@ -48,7 +47,11 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ad
 
     @Override
     public int getItemCount() {
-        return mostViewedLocations.size();
+        if (mostViewedLocations != null) {
+            return mostViewedLocations.size();
+        } else {
+            return 0;
+        }
     }
 
     public static class AdapterAllCategoriesViewHolder extends RecyclerView.ViewHolder {
@@ -59,10 +62,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ad
 
         public AdapterAllCategoriesViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            relativeLayout = itemView.findViewById(R.id.background_gradient);
-            imageView = itemView.findViewById(R.id.categories_image);
-            textView = itemView.findViewById(R.id.categories_title);
+            relativeLayout = itemView.findViewById(R.id.category_layout_back);
+            imageView = itemView.findViewById(R.id.category_img);
+            textView = itemView.findViewById(R.id.category_title);
         }
     }
 }

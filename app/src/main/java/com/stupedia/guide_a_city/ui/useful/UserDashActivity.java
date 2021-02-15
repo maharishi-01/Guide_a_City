@@ -75,7 +75,7 @@ public class UserDashActivity extends AppCompatActivity {
     private void initializeView() {
         featuredRecycler = findViewById(R.id.featured_recycler);
         mostViewedRecycler = findViewById(R.id.most_viewed_recycler);
-        categoriesRecycler = findViewById(R.id.categories_recycler);
+        categoriesRecycler = findViewById(R.id.categories_item_recy);
 
         categoriesRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         mostViewedRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
