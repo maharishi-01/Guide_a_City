@@ -1,4 +1,4 @@
-package com.stupedia.guide_a_city.adapter.HomeAdapter;
+package com.stupedia.guide_a_city.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

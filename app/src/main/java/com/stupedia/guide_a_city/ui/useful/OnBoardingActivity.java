@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.stupedia.guide_a_city.adapter.HomeAdapter.SliderAdapter;
+import com.stupedia.guide_a_city.adapter.SliderAdapter;
 import com.stupedia.guide_a_city.R;
 
 public class OnBoardingActivity extends AppCompatActivity {

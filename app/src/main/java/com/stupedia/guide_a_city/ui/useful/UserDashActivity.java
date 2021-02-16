@@ -11,11 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.stupedia.guide_a_city.R;
-import com.stupedia.guide_a_city.adapter.HomeAdapter.CategoriesAdapter;
-import com.stupedia.guide_a_city.adapter.HomeAdapter.FeaturedAdapter;
-import com.stupedia.guide_a_city.adapter.HomeAdapter.MostViewedAdpater;
+import com.stupedia.guide_a_city.adapter.CategoriesAdapter;
+import com.stupedia.guide_a_city.adapter.MostViewedAdpater;
 import com.stupedia.guide_a_city.model.CategoriesModel;
-import com.stupedia.guide_a_city.model.FeaturedModel;
 import com.stupedia.guide_a_city.model.MostViewedModel;
 import com.stupedia.guide_a_city.viewmodel.CategViewModel;
 import com.stupedia.guide_a_city.viewmodel.MostViewedVM;
