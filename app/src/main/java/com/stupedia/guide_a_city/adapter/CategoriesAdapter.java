@@ -1,4 +1,4 @@
-package com.stupedia.guide_a_city.adapter.HomeAdapter;
+package com.stupedia.guide_a_city.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.stupedia.guide_a_city.R;
 import com.stupedia.guide_a_city.model.CategoriesModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.AdapterAllCategoriesViewHolder> {
