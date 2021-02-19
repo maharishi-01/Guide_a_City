@@ -1,5 +1,7 @@
+
 package com.stupedia.guide_a_city.ui.useful;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.stupedia.guide_a_city.R;
 import com.stupedia.guide_a_city.adapter.HospitalListAdapter;
+import com.stupedia.guide_a_city.interfaces.RecyclerViewItemClick;
 import com.stupedia.guide_a_city.model.HospListItemModel;
 import com.stupedia.guide_a_city.receiver.NetworkChangeReceiver;
 import com.stupedia.guide_a_city.viewmodel.HospitalViewModel;
@@ -21,27 +24,26 @@ import com.stupedia.guide_a_city.viewmodel.HospitalViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HospitalActivity extends AppCompatActivity {
-    HospitalViewModel hospitalViewModel;
-    RecyclerView recyclerView;
-    HospitalListAdapter hospitalListAdapter;
-    List<HospListItemModel> itemModels;
-    int index = -1;
-    int pastVisiblesItems, visibleItemCount, totalItemCount;
-    LinearLayoutManager layoutManager;
-    View loadMoreView;
+public class HospitalActivity extends AppCompatActivity implements RecyclerViewItemClick {
+    protected RecyclerView recyclerView;
+    protected List<HospListItemModel> itemModels;
+    protected HospitalListAdapter hospitalListAdapter;
+    protected HospitalViewModel hospitalViewModel;
 
-    NetworkChangeReceiver networkChangeReceiver;
-    IntentFilter intentFilter;
+    private int index = -1, pastVisiblesItems, visibleItemCount, totalItemCount;
+
+    protected LinearLayoutManager layoutManager;
+    private View loadMoreView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospital);
         initializeView();
-       //online status code
-        networkChangeReceiver = new NetworkChangeReceiver();
-        intentFilter = new IntentFilter();
+        //online status code
+
 
         //hospital view mode;
         hospitalViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(HospitalViewModel.class);
@@ -51,6 +53,7 @@ public class HospitalActivity extends AppCompatActivity {
             public void onChanged(List<HospListItemModel> hospListItemModels) {
                 itemModels = hospListItemModels;
                 hospitalListAdapter.setData(itemModels);
+
             }
         });
 
@@ -68,13 +71,13 @@ public class HospitalActivity extends AppCompatActivity {
                     visibleItemCount = layoutManager.getChildCount();
                     totalItemCount = layoutManager.getItemCount();
                     pastVisiblesItems = layoutManager.findFirstVisibleItemPosition();
-                    if (visibleItemCount + pastVisiblesItems >= totalItemCount) {
+                    if (visibleItemCount + pastVisiblesItems >= totalItemCount - 1) {
                         loadNewData();
                     }
+
                 }
             }
         });
-
     }
 
 
@@ -104,20 +107,24 @@ public class HospitalActivity extends AppCompatActivity {
 
     }
 
-
     private void initializeView() {
         recyclerView = findViewById(R.id.hos_recycler_view);
         loadMoreView = findViewById(R.id.load_more_layout);
         itemModels = new ArrayList<>();
         layoutManager = new LinearLayoutManager(HospitalActivity.this);
         recyclerView.setLayoutManager(layoutManager);
-        hospitalListAdapter = new HospitalListAdapter(itemModels, HospitalActivity.this);
+        hospitalListAdapter = new HospitalListAdapter(itemModels, HospitalActivity.this, this);
         recyclerView.setAdapter(hospitalListAdapter);
     }
 
+
     @Override
-    protected void onResume() {
-        super.onResume();
-        registerReceiver(networkChangeReceiver, intentFilter);
+    public void onItemClick(int position) {
+        navigateToNextActivity(position);
+    }
+
+    private void navigateToNextActivity(int position) {
+        Intent i = new Intent(this, DetailsCateActivity.class);
+        startActivity(i);
     }
 }

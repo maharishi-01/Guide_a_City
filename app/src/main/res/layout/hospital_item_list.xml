@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/banner_background"
+    app:cardElevation="0dp"
+    >
 
-    <ImageView
-        android:id="@+id/hospital_item_imageview"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/airport" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/hospital_item_imageview"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/hospital_item_latlang"
+            app:layout_constraintEnd_toStartOf="@+id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hospital_item_title"
+            app:srcCompat="@drawable/airport" />
 
     <TextView
         android:id="@+id/hospital_item_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hospital_item_imageview"
-        app:layout_constraintTop_toTopOf="@+id/hospital_item_imageview" />
-
-    <TextView
-        android:id="@+id/hospital_item_descripiton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hospital_item_imageview" />
+        android:fontFamily="@font/rubik_regular"
+        android:text="S.K.M.C.H Muzaffarpur"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/hospital_item_latlang"
+        app:layout_constraintEnd_toStartOf="@+id/hospital_item_rating"
+        app:layout_constraintStart_toEndOf="@+id/divider"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/hospital_item_latlang"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/rubik_light"
+        android:text="Muzaffarpur 843123 patna"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hospital_item_imageview"
+        app:layout_constraintStart_toStartOf="@+id/hospital_item_title"
         app:layout_constraintTop_toBottomOf="@+id/hospital_item_title" />
 
     <RatingBar
@@ -58,11 +64,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:numStars="5"
-        android:stepSize="0.1"
+        android:layout_marginEnd="8dp"
+        android:numStars="1"
+        android:theme="@style/RatingBar"
+        app:layout_constraintBottom_toBottomOf="@+id/rating_textview_hospital"
+        app:layout_constraintEnd_toStartOf="@+id/rating_textview_hospital"
+        app:layout_constraintStart_toEndOf="@+id/hospital_item_title"
+        app:layout_constraintTop_toTopOf="@+id/rating_textview_hospital" />
+
+
+    <TextView
+        android:id="@+id/rating_textview_hospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/muli_light"
+        android:text="4.3"
+        app:layout_constraintBottom_toBottomOf="@+id/hospital_item_title"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hospital_item_rating"
+        app:layout_constraintTop_toTopOf="@+id/hospital_item_title" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="@+id/hospital_item_latlang"
+        app:layout_constraintEnd_toStartOf="@+id/hospital_item_title"
         app:layout_constraintStart_toEndOf="@+id/hospital_item_imageview"
-        app:layout_constraintTop_toBottomOf="@+id/hospital_item_latlang" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="@+id/hospital_item_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

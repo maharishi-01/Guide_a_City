@@ -8,10 +8,13 @@ import com.stupedia.guide_a_city.utils.NetworkStatus;
 
 public class NetworkChangeReceiver extends BroadcastReceiver {
 
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        // TODO: This method is called when the BroadcastReceiver is receiving
-        // an Intent broadcast.
+
+        System.out.println("okkkkk---");
         NetworkStatus.isNetworkAvailable(context);
+        System.out.println("instatus-->" + NetworkStatus.isNetworkAvailable(context));
+
     }
 }
