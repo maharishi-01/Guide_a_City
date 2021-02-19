@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.stupedia.guide_a_city.R;
+import com.stupedia.guide_a_city.interfaces.RecyclerViewItemClick;
 import com.stupedia.guide_a_city.model.HospListItemModel;
 
 import java.util.List;
@@ -19,11 +20,13 @@ import java.util.List;
 public class HospitalListAdapter extends RecyclerView.Adapter<HospitalListAdapter.ViewHolder> {
     List<HospListItemModel> listItemModels;
     Context context;
+    RecyclerViewItemClick recyclerViewItemClick;
 
-    public HospitalListAdapter(List<HospListItemModel> listItemModels, Context context) {
+    public HospitalListAdapter(List<HospListItemModel> listItemModels, Context context
+            , RecyclerViewItemClick recyclerViewItemClick) {
         this.listItemModels = listItemModels;
-        System.out.println(listItemModels.size());
         this.context = context;
+        this.recyclerViewItemClick = recyclerViewItemClick;
     }
 
     @NonNull
@@ -43,9 +46,10 @@ public class HospitalListAdapter extends RecyclerView.Adapter<HospitalListAdapte
         String location = listItemModels.get(position).getLat_lang();
 
         holder.titleText.setText(title);
-        holder.ratingBar.setRating(Float.parseFloat(rating));
-        holder.descText.setText(desc);
+        holder.ratingBarText.setText(rating);
         holder.latlangText.setText(location);
+
+
     }
 
     @Override
@@ -66,19 +70,25 @@ public class HospitalListAdapter extends RecyclerView.Adapter<HospitalListAdapte
 
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView titleText, descText, latlangText;
-        RatingBar ratingBar;
+        TextView titleText, descText, latlangText, ratingBarText;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.hospital_item_imageview);
             titleText = itemView.findViewById(R.id.hospital_item_title);
-            descText = itemView.findViewById(R.id.hospital_item_descripiton);
             latlangText = itemView.findViewById(R.id.hospital_item_latlang);
-            ratingBar = itemView.findViewById(R.id.hospital_item_rating);
+            ratingBarText = itemView.findViewById(R.id.rating_textview_hospital);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    recyclerViewItemClick.onItemClick(getAdapterPosition());
+                }
+            });
         }
+
 
     }
 }
